@@ -8,6 +8,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.mvvm.domain.model.RecipeModel
+import com.example.mvvm.network.model.RecipeDTO
+import com.example.mvvm.network.model.RecipeDTOMapper
 import com.example.mvvm.ui.theme.MVVMTheme
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +24,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        val mapper = RecipeDTOMapper()
+
+        val recipe = RecipeModel()
+
+        val networkEntity: RecipeDTO = mapper.mapToDTO(recipe)
+
+        val r: RecipeModel = mapper.mapFromDTO(networkEntity)
+
+
+
     }
 }
 
