@@ -1,5 +1,6 @@
 package com.example.mvvm.network
 
+import com.example.mvvm.network.model.RecipeDTO
 import com.example.mvvm.network.responses.RecipeSearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -13,4 +14,10 @@ interface RecipeService {
         @Query("page") page: Int,
         @Query("query") query: String,
     ):RecipeSearchResponse
+
+    @GET("get")
+    suspend fun get(
+        @Header("Authorization") token: String,
+        @Query("id")id:Int
+    ):RecipeDTO
 }

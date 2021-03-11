@@ -2,7 +2,7 @@ package com.example.mvvm.network.model
 
 import com.google.gson.annotations.SerializedName
 
-class RecipeDTO (
+data class RecipeDTO (
     @SerializedName("pk")
     var pk: Int? = null,
 
