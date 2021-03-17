@@ -1,8 +1,8 @@
 package com.example.mvvm.domain.util
 
-interface DTOMapper <DTO,Model>{
+interface DTOMapper <T,DomainModel>{
 
-    fun mapFromDTO(DTO:DTO):Model
+    fun mapToDomainModel(DTO:T):DomainModel
 
-    fun mapToDTO(domainModel: Model):DTO
+    fun mapFromDomainModel(domainModel: DomainModel):T
 }

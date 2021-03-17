@@ -5,7 +5,7 @@ import com.example.mvvm.domain.util.DTOMapper
 
 
 class RecipeDTOMapper : DTOMapper<RecipeDTO, RecipeModel> {
-    override fun mapFromDTO(DTO: RecipeDTO): RecipeModel {
+    override fun mapToDomainModel(DTO: RecipeDTO): RecipeModel {
         return RecipeModel(
             id = DTO.pk,
             title = DTO.title,
@@ -21,7 +21,7 @@ class RecipeDTOMapper : DTOMapper<RecipeDTO, RecipeModel> {
             )
     }
 
-    override fun mapToDTO(domainModel: RecipeModel): RecipeDTO {
+    override fun mapFromDomainModel(domainModel: RecipeModel): RecipeDTO {
         return RecipeDTO(
             pk = domainModel.id,
             title = domainModel.title,
@@ -37,12 +37,12 @@ class RecipeDTOMapper : DTOMapper<RecipeDTO, RecipeModel> {
             )
     }
 
-    fun fromDTOList(initial:List<RecipeDTO>):List<RecipeModel>{
-        return initial.map { mapFromDTO(it)}
+    fun toDomainList(initial:List<RecipeDTO>):List<RecipeModel>{
+        return initial.map { mapToDomainModel(it)}
     }
 
     fun toDTOList(initial:List<RecipeModel>):List<RecipeDTO>{
-        return initial.map { mapToDTO(it)}
+        return initial.map { mapFromDomainModel(it)}
     }
 
 }
