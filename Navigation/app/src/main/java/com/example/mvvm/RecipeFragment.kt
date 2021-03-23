@@ -31,7 +31,7 @@ fun RecipeFragment(navController: NavHostController) {
     bottomBar = {
         BottomAppBar(backgroundColor = Color.Green) {
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Filled.Favorite, contentDescription = null)
+                Icon(imageVector = Icons.Filled.Favorite, contentDescription = null,tint = Color.White)
             }
         }
     }
