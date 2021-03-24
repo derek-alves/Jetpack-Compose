@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltNavGraphViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,6 +19,7 @@ import com.example.mvvm.network.model.RecipeDTO
 import com.example.mvvm.network.model.RecipeDTOMapper
 import com.example.mvvm.presentation.ui.recipe.RecipeView
 import com.example.mvvm.presentation.ui.recipe_list.RecipeList
+import com.example.mvvm.presentation.ui.recipe_list.RecipeListViewModel
 import com.example.mvvm.ui.theme.MVVMTheme
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +39,9 @@ class MainActivity : AppCompatActivity() {
             MVVMTheme {
                 val navController = rememberNavController()
                 NavHost(navController = navController,startDestination = "RecipeList"){
-                    composable("RecipeList"){ RecipeList(navController = navController)}
+                    composable("RecipeList"){
+                        val viewModelRecipeList = hiltNavGraphViewModel<RecipeListViewModel>()
+                        RecipeList(navController = navController,viewModelRecipeList)}
                     composable("RecipeView"){ RecipeView()}
                 }
             }
