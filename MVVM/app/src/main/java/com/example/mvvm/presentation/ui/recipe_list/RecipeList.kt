@@ -1,6 +1,5 @@
 package com.example.mvvm.presentation.ui.recipe_list
 
-
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,15 +13,19 @@ import androidx.compose.material.Button
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
+import com.example.mvvm.network.model.RecipeDTOMapper
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
 
 @Composable
 fun RecipeList(
     navController: NavController,
     viewModel: RecipeListViewModel = viewModel()
 ) {
+    Log.d("VIEW","VIEW MODEL: ${viewModel.getRepo()}")
+    Log.d("VIEW","VIEW MODEL: ${viewModel.getToken()}")
 
-    Log.d("VIEW","VIEW MODEL: $viewModel")
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
             text = "RecipeList",

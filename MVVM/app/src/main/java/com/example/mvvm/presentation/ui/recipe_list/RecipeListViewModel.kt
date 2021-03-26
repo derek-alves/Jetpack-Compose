@@ -2,17 +2,24 @@ package com.example.mvvm.presentation.ui.recipe_list
 
 
 import androidx.lifecycle.ViewModel
+import com.example.mvvm.respository.RecipeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import javax.inject.Named
 
 
 @HiltViewModel
 class RecipeListViewModel
 @Inject
 constructor(
-    private val provideRandomString: String
-):ViewModel() {
+    private val repository: RecipeRepository,
+    @Named("auth_token") private val token: String,
+) : ViewModel() {
     init {
-        println("DI: $provideRandomString")
+        println("DI: $repository")
+        println("DI: $token")
     }
+
+    fun getRepo() = repository
+    fun getToken() = token
 }
