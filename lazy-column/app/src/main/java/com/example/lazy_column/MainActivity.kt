@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.lazy_column.data.TvShowList
+import com.example.lazy_column.model.TvShow
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,12 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
+
+
+@Composable
+fun DisplayTvShows(selectedItem: (TvShow) -> Unit) {
+    val tvShows = TvShowList.tvShows
 }
 
 @Preview(showBackground = true)
